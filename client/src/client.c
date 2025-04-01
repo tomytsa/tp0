@@ -15,7 +15,7 @@ int main(void)
 	/* ---------------- LOGGING ---------------- */
 
 	logger = iniciar_logger();
-
+	log_info(logger, "holaaaa");
 	// Usando el logger creado previamente
 	// Escribi: "Hola! Soy un log"
 
@@ -54,7 +54,7 @@ int main(void)
 
 t_log* iniciar_logger(void)
 {
-	t_log* nuevo_logger;
+	t_log* nuevo_logger = log_create("tp0.log", "capitan_america", true, LOG_LEVEL_INFO);
 
 	return nuevo_logger;
 }
@@ -97,4 +97,5 @@ void terminar_programa(int conexion, t_log* logger, t_config* config)
 {
 	/* Y por ultimo, hay que liberar lo que utilizamos (conexion, log y config) 
 	  con las funciones de las commons y del TP mencionadas en el enunciado */
+	log_destroy(logger);
 }
